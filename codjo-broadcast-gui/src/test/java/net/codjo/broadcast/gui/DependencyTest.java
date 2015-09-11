@@ -8,7 +8,6 @@ public class DependencyTest extends PackageDependencyTestCase {
         Dependency dependency = createDependency();
         dependency.addIgnoredPackage("com.intellij.uiDesigner.core");
         dependency.assertDependency("dependency.txt");
-        dependency.assertNoCycle();
     }
 
 

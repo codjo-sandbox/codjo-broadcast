@@ -1,8 +1,5 @@
 package net.codjo.broadcast.server;
 import fakedb.FakeDriver;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 import net.codjo.broadcast.common.Context;
 import net.codjo.broadcast.common.Preferences;
 import net.codjo.broadcast.common.PreferencesMock;
@@ -13,9 +10,14 @@ import net.codjo.broadcast.common.computed.ComputedContext;
 import net.codjo.broadcast.common.computed.ComputedField;
 import net.codjo.sql.builder.FieldInfo;
 import net.codjo.sql.builder.TableName;
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 import static junit.framework.Assert.assertTrue;
 import static net.codjo.broadcast.common.computed.ComputedField.WARNINGS;
@@ -28,6 +30,10 @@ public class DefaultComputedFieldGeneratorTest {
     @Rule
     public ExpectedException thrown = ExpectedException.none();
 
+    @Before
+    public void setUp() throws ClassNotFoundException {
+        Class.forName("fakedb.FakeDriver");
+    }
 
     @Test
     public void testCreateComputedTable_useOfReservedName() throws Exception {

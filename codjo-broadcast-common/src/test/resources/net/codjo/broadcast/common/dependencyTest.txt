@@ -7,6 +7,8 @@ net.codjo.broadcast.common
 	-> net.codjo.test.common
 	-> net.codjo.test.common.mock
 	-> net.codjo.tokio
+	-> org.mockito
+	-> org.mockito.stubbing
 net.codjo.broadcast.common.columns
 	-> net.codjo.sql.builder
 	-> fakedb
